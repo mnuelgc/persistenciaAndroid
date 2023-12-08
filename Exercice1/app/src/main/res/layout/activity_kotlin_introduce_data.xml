@@ -7,6 +7,7 @@
     tools:context=".KotlinIntroduceDataActivity">
 
     <EditText
+        android:text="@string/textDefault"
         android:id="@+id/editTextField"
         android:layout_width="match_parent"
         android:layout_height="50dp"
@@ -17,7 +18,7 @@
         android:layout_margin="20dp"/>
 
     <TextView
-        android:text="@string/tamano"
+        android:text="@string/tamanoWN"
         android:id="@+id/siezeLabelText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -32,6 +33,8 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@+id/siezeLabelText"
         app:layout_constraintStart_toStartOf="parent"
+        android:max="50"
+        android:progress="32"
         android:layout_margin="10dp"/>
 
     <Button

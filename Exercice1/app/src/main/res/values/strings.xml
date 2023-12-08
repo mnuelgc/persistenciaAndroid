@@ -1,11 +1,13 @@
 <resources>
     <string name="app_name">SharedPrefeferences</string>
     <string name="introduce_text">Introduce Text</string>
-    <string name="tamano">Tamaño (x/50)</string>
+    <string name="tamanoWN">Tamaño (32/50)</string>
+    <string name="tamano">Tamaño </string>
     <string name="Apply_changes">Aplicar y Visualizar</string>
     <string name="exit">Salir</string>
     <string name="AppValues">Valores actuales de la aplicación</string>
     <string name="text">Text:</string>
     <string name="Size">Tamaño:</string>
     <string name="Return">Volver</string>
+    <string name="textDefault">texto por defecto</string>
 </resources>

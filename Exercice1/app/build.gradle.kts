@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace = "es.eps.ua.sharedprefeferences"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "es.eps.ua.sharedprefeferences"
@@ -32,6 +32,10 @@ android {
     }
     kotlinOptions {
         jvmTarget = "1.8"
+    }
+
+    buildFeatures {
+        viewBinding = true
     }
 }
 
