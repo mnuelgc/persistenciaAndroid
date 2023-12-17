@@ -1,9 +1,20 @@
-<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+<!--
+    <Preference
+        android:fragment="es.ua.eps.exercice2.BasicPreferencesSettings"
+        app:key="basic_key"
+        app:title="Basic"
+        android:summary="Basic"/>
+    <Preference android:fragment="es.ua.eps.exercice2.AdvancedPreferencesSettings"
+        app:key="advance_key"
+        app:title="Advanced"
+        android:summary="Advanced"/>
+-->
 
-    <PreferenceCategory
+    <PreferenceScreen
+        android:key="basic_key"
         app:title="@string/basic_header">
-
         <ListPreference
             app:key="size"
             app:title="@string/size_title"
@@ -37,10 +48,10 @@
             app:defaultValue="false"
             app:key="italic"
             app:title="@string/Italic"/>
+    </PreferenceScreen>
 
-    </PreferenceCategory>
-
-    <PreferenceCategory
+    <PreferenceScreen
+        android:key="advanced_key"
         app:title="@string/andvanced_header">
 
         <SeekBarPreference
@@ -57,6 +68,6 @@
             app:title="@string/rotation" />
 
 
-    </PreferenceCategory>
+    </PreferenceScreen>
 
 </PreferenceScreen>
