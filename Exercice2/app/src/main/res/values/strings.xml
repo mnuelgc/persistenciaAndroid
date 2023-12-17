@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Exercice2</string>
+    <string name="navigation_drawer_open">Open</string>
+    <string name="navigation_drawer_close">Close</string>
+    <!-- Preference Titles -->
+    <string name="basic_header">Basic</string>
+    <string name="andvanced_header">Advanced</string>
+
+    <string name="basic_format">Basic Format</string>
+    <string name="advance_format">Advance Format</string>
+
+    <!-- Basic Preferences -->
+    <string name="size_title">Size</string>
+    <string name="reply_title">Default reply action</string>
+    <string name="FGcolor_title">FG Color</string>
+    <string name="BGcolor_title">BG Color</string>
+    <string name="Bold">Bold</string>
+    <string name="Italic">Italic</string>
+
+    <!-- Advanced Preferences -->
+    <string name="alpha">Alpha</string>
+    <string name="rotation">Rotation</string>
+</resources>

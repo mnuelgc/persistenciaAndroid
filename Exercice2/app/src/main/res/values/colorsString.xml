@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="black">#FF000000</string>
+    <string name="white">#FFFFFFFF</string>
+    <string name="red">#FFFF0000</string>
+    <string name="blue">#FF0000FF</string>
+    <string name="green">#FF00FF00</string>
+    <string name="cyan">#83FFF4</string>
+    <string name="magenta">#D215FF</string>
+    <string name="yellow">#FFEB3B</string>
+</resources>
