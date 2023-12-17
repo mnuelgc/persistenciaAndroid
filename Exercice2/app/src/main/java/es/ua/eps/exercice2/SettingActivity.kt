@@ -57,18 +57,6 @@ class SettingActivity : AppCompatActivity(), NavigationView.OnNavigationItemSele
         when (item.itemId) {
             R.id.nav_item_one -> {
                 finish()
-                /*
-                Toast.makeText(this, "MAIN", Toast.LENGTH_SHORT).show()
-                var settingIntent: Intent =
-                    Intent(this@SettingActivity, MainActivity::class.java)
-                settingIntent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
-                startActivity(settingIntent)
-
-                 */
-            }
-
-            R.id.nav_item_two -> {
-                Toast.makeText(this, "Settings", Toast.LENGTH_SHORT).show()
             }
         }
         drawer.closeDrawer(GravityCompat.START)

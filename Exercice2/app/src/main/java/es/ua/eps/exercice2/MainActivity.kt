@@ -113,9 +113,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId){
-            R.id.nav_item_one ->Toast.makeText(this, "MAIN", Toast.LENGTH_SHORT).show()
             R.id.nav_item_two ->{
-                Toast.makeText(this, "Settings", Toast.LENGTH_SHORT).show()
                 var settingIntent : Intent = Intent(this@MainActivity, SettingActivity::class.java)
                 settingIntent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
                 startActivity(settingIntent)
