@@ -1,0 +1,26 @@
+[
+    {
+        "merged": "es.eps.ua.sharedprefeferences.app-mergeDebugResources-30:/layout/activity_kotlin_introduce_data.xml",
+        "source": "es.eps.ua.sharedprefeferences.app-main-33:/layout/activity_kotlin_introduce_data.xml"
+    },
+    {
+        "merged": "C:\\Users\\usuario\\.gradle\\daemon\\8.0\\es.eps.ua.sharedprefeferences.app-mergeDebugResources-30:\\layout\\activity_java_detail.xml",
+        "source": "C:\\Users\\usuario\\.gradle\\daemon\\8.0\\es.eps.ua.sharedprefeferences.app-main-33:\\layout\\activity_java_detail.xml"
+    },
+    {
+        "merged": "C:\\Users\\usuario\\.gradle\\daemon\\8.0\\es.eps.ua.sharedprefeferences.app-mergeDebugResources-30:\\layout\\activity_java_introduce_data.xml",
+        "source": "C:\\Users\\usuario\\.gradle\\daemon\\8.0\\es.eps.ua.sharedprefeferences.app-main-33:\\layout\\activity_java_introduce_data.xml"
+    },
+    {
+        "merged": "C:\\Users\\usuario\\.gradle\\daemon\\8.0\\es.eps.ua.sharedprefeferences.app-mergeDebugResources-30:\\layout\\activity_kotlin_introduce_data.xml",
+        "source": "C:\\Users\\usuario\\.gradle\\daemon\\8.0\\es.eps.ua.sharedprefeferences.app-main-33:\\layout\\activity_kotlin_introduce_data.xml"
+    },
+    {
+        "merged": "es.eps.ua.sharedprefeferences.app-mergeDebugResources-30:/layout/activity_java_introduce_data.xml",
+        "source": "es.eps.ua.sharedprefeferences.app-main-33:/layout/activity_java_introduce_data.xml"
+    },
+    {
+        "merged": "C:\\Users\\usuario\\.gradle\\daemon\\8.0\\es.eps.ua.sharedprefeferences.app-mergeDebugResources-30:\\layout\\activity_kotlin_detail.xml",
+        "source": "C:\\Users\\usuario\\.gradle\\daemon\\8.0\\es.eps.ua.sharedprefeferences.app-main-33:\\layout\\activity_kotlin_detail.xml"
+    }
+]

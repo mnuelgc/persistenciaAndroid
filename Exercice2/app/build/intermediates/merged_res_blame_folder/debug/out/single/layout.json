@@ -1,0 +1,30 @@
+[
+    {
+        "merged": "C:\\Users\\usuario\\.gradle\\daemon\\8.0\\es.ua.eps.exercice2.app-mergeDebugResources-39:\\layout\\activity_setting.xml",
+        "source": "C:\\Users\\usuario\\.gradle\\daemon\\8.0\\es.ua.eps.exercice2.app-main-42:\\layout\\activity_setting.xml"
+    },
+    {
+        "merged": "es.ua.eps.exercice2.app-mergeDebugResources-39:/layout/activity_main.xml",
+        "source": "es.ua.eps.exercice2.app-main-42:/layout/activity_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\usuario\\.gradle\\daemon\\8.0\\es.ua.eps.exercice2.app-mergeDebugResources-39:\\layout\\activity_main.xml",
+        "source": "C:\\Users\\usuario\\.gradle\\daemon\\8.0\\es.ua.eps.exercice2.app-main-42:\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\usuario\\.gradle\\daemon\\8.0\\es.ua.eps.exercice2.app-mergeDebugResources-39:\\layout\\app_bar_main.xml",
+        "source": "C:\\Users\\usuario\\.gradle\\daemon\\8.0\\es.ua.eps.exercice2.app-main-42:\\layout\\app_bar_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\usuario\\.gradle\\daemon\\8.0\\es.ua.eps.exercice2.app-mergeDebugResources-39:\\layout\\app_bar_settings.xml",
+        "source": "C:\\Users\\usuario\\.gradle\\daemon\\8.0\\es.ua.eps.exercice2.app-main-42:\\layout\\app_bar_settings.xml"
+    },
+    {
+        "merged": "C:\\Users\\usuario\\.gradle\\daemon\\8.0\\es.ua.eps.exercice2.app-mergeDebugResources-39:\\layout\\nav_header_main.xml",
+        "source": "C:\\Users\\usuario\\.gradle\\daemon\\8.0\\es.ua.eps.exercice2.app-main-42:\\layout\\nav_header_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\usuario\\.gradle\\daemon\\8.0\\es.ua.eps.exercice2.app-mergeDebugResources-39:\\layout\\nav_header_settings.xml",
+        "source": "C:\\Users\\usuario\\.gradle\\daemon\\8.0\\es.ua.eps.exercice2.app-main-42:\\layout\\nav_header_settings.xml"
+    }
+]
