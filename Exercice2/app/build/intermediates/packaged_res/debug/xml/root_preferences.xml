@@ -1,0 +1,73 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+<!--
+    <Preference
+        android:fragment="es.ua.eps.exercice2.BasicPreferencesSettings"
+        app:key="basic_key"
+        app:title="Basic"
+        android:summary="Basic"/>
+    <Preference android:fragment="es.ua.eps.exercice2.AdvancedPreferencesSettings"
+        app:key="advance_key"
+        app:title="Advanced"
+        android:summary="Advanced"/>
+-->
+
+    <PreferenceScreen
+        android:key="basic_key"
+        app:title="@string/basic_header">
+        <ListPreference
+            app:key="size"
+            app:title="@string/size_title"
+            app:entries="@array/size_number_list"
+            app:entryValues="@array/size_number_list"
+            app:defaultValue="size"
+            app:useSimpleSummaryProvider="true"/>
+
+        <ListPreference
+            app:key="fgcolor_key"
+            app:title="@string/FGcolor_title"
+            app:entries="@array/color_entries"
+            app:entryValues="@array/color_values"
+            app:defaultValue="fgcolor_key"
+            app:useSimpleSummaryProvider="true" />
+
+        <ListPreference
+            app:key="bgcolor_key"
+            app:title="@string/BGcolor_title"
+            app:entries="@array/color_entries"
+            app:entryValues="@array/color_values"
+            app:defaultValue="bgcolor_key"
+            app:useSimpleSummaryProvider="true" />
+
+        <SwitchPreference
+            app:defaultValue="false"
+            app:key="bold"
+            app:title="@string/Bold"/>
+
+        <SwitchPreference
+            app:defaultValue="false"
+            app:key="italic"
+            app:title="@string/Italic"/>
+    </PreferenceScreen>
+
+    <PreferenceScreen
+        android:key="advanced_key"
+        app:title="@string/andvanced_header">
+
+        <SeekBarPreference
+            app:key="PAlpha"
+            app:defaultValue="100"
+            app:showSeekBarValue="true"
+            app:title="@string/alpha" />
+
+        <SeekBarPreference
+            app:key="PRotation"
+            app:defaultValue="0"
+            app:showSeekBarValue="true"
+            android:max="360"
+            app:title="@string/rotation" />
+
+
+    </PreferenceScreen>
+
+</PreferenceScreen>

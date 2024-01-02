@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".JavaIntroduceDataActivity">
+
+    <EditText
+        android:text="@string/textDefault"
+        android:id="@+id/editTextFieldJava"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:hint="@string/introduce_text"
+        android:gravity="center"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_margin="20dp"/>
+
+    <TextView
+        android:text="@string/tamanoWN"
+        android:id="@+id/siezeLabelTextJava"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/editTextFieldJava"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="50dp"/>
+
+    <SeekBar
+        android:id="@+id/seekBarIdJava"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/siezeLabelTextJava"
+        app:layout_constraintStart_toStartOf="parent"
+        android:max="50"
+        android:progress="32"
+        android:layout_margin="10dp"/>
+
+    <Button
+        android:id="@+id/applyChangesJava"
+        android:text="@string/Apply_changes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/seekBarIdJava"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="80dp"/>
+
+    <Button
+        android:id="@+id/exitButtonJava"
+        android:text="@string/exit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/sizeResultJava"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="80dp"/>
+
+    <TextView
+        android:text="@string/text"
+        android:id="@+id/textLabelJava"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/appValuesTextJava"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="10dp"/>
+
+    <TextView
+        android:text="@string/AppValues"
+        android:id="@+id/textResultJava"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/textLabelJava"
+        app:layout_constraintStart_toEndOf="@id/textLabelJava"
+        android:layout_marginStart="5dp"/>
+
+    <TextView
+        android:text="@string/Size"
+        android:id="@+id/sizeLabelResultTextJava"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/textLabelJava"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="10dp"/>
+
+    <TextView
+        android:text="@string/AppValues"
+        android:id="@+id/sizeResultJava"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/sizeLabelResultTextJava"
+        app:layout_constraintStart_toEndOf="@id/sizeLabelResultTextJava"
+        android:layout_marginStart="5dp"/>
+
+    <TextView
+        android:text="@string/AppValues"
+        android:id="@+id/appValuesTextJava"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/applyChangesJava"
+        app:layout_constraintStart_toStartOf="parent"
+        android:textStyle="bold"
+        android:layout_margin="50dp"/>
+
+
+    <Button
+        android:id="@+id/swapLanguageButtonJava"
+        android:background="@drawable/kotlin"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:layout_constraintTop_toTopOf="@id/exitButtonJava"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="15dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

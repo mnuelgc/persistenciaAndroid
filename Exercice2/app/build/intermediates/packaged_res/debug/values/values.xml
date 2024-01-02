@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="color_entries">
+        <item>Black</item>
+        <item>White</item>
+        <item>Red</item>
+        <item>Blue</item>
+        <item>Green</item>
+        <item>Cyan</item>
+        <item>Magenta</item>
+        <item>Yellow</item>
+    </string-array>
+    <string-array name="color_values">
+        <item>@string/black</item>
+        <item>@string/white</item>
+        <item>@string/red</item>
+        <item>@string/blue</item>
+        <item>@string/green</item>
+        <item>@string/cyan</item>
+        <item>@string/magenta</item>
+        <item>@string/yellow</item>
+    </string-array>
+    <string-array name="reply_entries">
+        <item>Reply</item>
+        <item>Reply to all</item>
+    </string-array>
+    <string-array name="reply_values">
+        <item>reply</item>
+        <item>reply_all</item>
+    </string-array>
+    <string-array name="size_number_list">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+        <item>13</item>
+        <item>14</item>
+        <item>15</item>
+        <item>16</item>
+        <item>17</item>
+        <item>18</item>
+        <item>19</item>
+        <item>20</item>
+        <item>21</item>
+        <item>22</item>
+        <item>23</item>
+        <item>24</item>
+        <item>25</item>
+        <item>26</item>
+        <item>27</item>
+        <item>28</item>
+        <item>29</item>
+        <item>30</item>
+        <item>31</item>
+        <item>32</item>
+        <item>33</item>
+        <item>34</item>
+        <item>35</item>
+        <item>36</item>
+        <item>37</item>
+        <item>38</item>
+        <item>39</item>
+        <item>40</item>
+        <item>41</item>
+        <item>42</item>
+        <item>43</item>
+        <item>44</item>
+        <item>45</item>
+        <item>46</item>
+        <item>47</item>
+        <item>48</item>
+        <item>49</item>
+        <item>50</item>
+    </string-array>
+    <color name="black">#FF000000</color>
+    <color name="blue">#FF0000FF</color>
+    <color name="cyan">#83FFF4</color>
+    <color name="green">#FF00FF00</color>
+    <color name="magenta">#D215FF</color>
+    <color name="red">#FFFF0000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="yellow">#FFEB3B</color>
+    <string name="BGcolor_title">BG Color</string>
+    <string name="Bold">Bold</string>
+    <string name="FGcolor_title">FG Color</string>
+    <string name="Italic">Italic</string>
+    <string name="advance_format">Advance Format</string>
+    <string name="alpha">Alpha</string>
+    <string name="andvanced_header">Advanced</string>
+    <string name="app_name">Exercice2</string>
+    <string name="attachment_summary_off">Only download attachments when manually requested</string>
+    <string name="attachment_summary_on">Automatically download attachments for incoming emails
+    </string>
+    <string name="attachment_title">Download incoming attachments</string>
+    <string name="basic_format">Basic Format</string>
+    <string name="basic_header">Basic</string>
+    <string name="black">#FF000000</string>
+    <string name="blue">#FF0000FF</string>
+    <string name="cyan">#83FFF4</string>
+    <string name="green">#FF00FF00</string>
+    <string name="magenta">#D215FF</string>
+    <string name="messages_header">Messages</string>
+    <string name="navigation_drawer_close">Close</string>
+    <string name="navigation_drawer_open">Open</string>
+    <string name="red">#FFFF0000</string>
+    <string name="reply_title">Default reply action</string>
+    <string name="rotation">Rotation</string>
+    <string name="signature_title">Your signature</string>
+    <string name="size_title">Size</string>
+    <string name="sync_header">Sync</string>
+    <string name="sync_title">Sync email periodically</string>
+    <string name="white">#FFFFFFFF</string>
+    <string name="yellow">#FFEB3B</string>
+    <style name="Base.Theme.Exercice2" parent="Theme.Material3.DayNight.NoActionBar">
+        
+        
+
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <style name="Theme.Exercice2" parent="Base.Theme.Exercice2"/>
+</resources>

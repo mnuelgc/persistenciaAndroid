@@ -1,0 +1,114 @@
+[
+    {
+        "merged": "C:\\Users\\usuario\\.gradle\\daemon\\8.0\\es.ua.eps.exercice2.app-merged_res-40:\\layout_nav_header_main.xml.flat",
+        "source": "C:\\Users\\usuario\\.gradle\\daemon\\8.0\\es.ua.eps.exercice2.app-main-42:\\layout\\nav_header_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\usuario\\.gradle\\daemon\\8.0\\es.ua.eps.exercice2.app-merged_res-40:\\mipmap-hdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\usuario\\.gradle\\daemon\\8.0\\es.ua.eps.exercice2.app-main-42:\\mipmap-hdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\usuario\\.gradle\\daemon\\8.0\\es.ua.eps.exercice2.app-merged_res-40:\\xml_root_preferences.xml.flat",
+        "source": "C:\\Users\\usuario\\.gradle\\daemon\\8.0\\es.ua.eps.exercice2.app-main-42:\\xml\\root_preferences.xml"
+    },
+    {
+        "merged": "C:\\Users\\usuario\\.gradle\\daemon\\8.0\\es.ua.eps.exercice2.app-merged_res-40:\\mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\usuario\\.gradle\\daemon\\8.0\\es.ua.eps.exercice2.app-main-42:\\mipmap-mdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\usuario\\.gradle\\daemon\\8.0\\es.ua.eps.exercice2.app-merged_res-40:\\layout_activity_main.xml.flat",
+        "source": "C:\\Users\\usuario\\.gradle\\daemon\\8.0\\es.ua.eps.exercice2.app-main-42:\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\usuario\\.gradle\\daemon\\8.0\\es.ua.eps.exercice2.app-merged_res-40:\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "C:\\Users\\usuario\\.gradle\\daemon\\8.0\\es.ua.eps.exercice2.app-main-42:\\mipmap-anydpi-v26\\ic_launcher_round.xml"
+    },
+    {
+        "merged": "C:\\Users\\usuario\\.gradle\\daemon\\8.0\\es.ua.eps.exercice2.app-merged_res-40:\\mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\usuario\\.gradle\\daemon\\8.0\\es.ua.eps.exercice2.app-main-42:\\mipmap-hdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\usuario\\.gradle\\daemon\\8.0\\es.ua.eps.exercice2.app-merged_res-40:\\xml_data_extraction_rules.xml.flat",
+        "source": "C:\\Users\\usuario\\.gradle\\daemon\\8.0\\es.ua.eps.exercice2.app-main-42:\\xml\\data_extraction_rules.xml"
+    },
+    {
+        "merged": "C:\\Users\\usuario\\.gradle\\daemon\\8.0\\es.ua.eps.exercice2.app-merged_res-40:\\mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\usuario\\.gradle\\daemon\\8.0\\es.ua.eps.exercice2.app-main-42:\\mipmap-mdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\usuario\\.gradle\\daemon\\8.0\\es.ua.eps.exercice2.app-merged_res-40:\\mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\usuario\\.gradle\\daemon\\8.0\\es.ua.eps.exercice2.app-main-42:\\mipmap-xxxhdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\usuario\\.gradle\\daemon\\8.0\\es.ua.eps.exercice2.app-merged_res-40:\\layout_activity_setting.xml.flat",
+        "source": "C:\\Users\\usuario\\.gradle\\daemon\\8.0\\es.ua.eps.exercice2.app-main-42:\\layout\\activity_setting.xml"
+    },
+    {
+        "merged": "es.ua.eps.exercice2.app-merged_res-40:/xml_root_preferences.xml.flat",
+        "source": "es.ua.eps.exercice2.app-main-42:/xml/root_preferences.xml"
+    },
+    {
+        "merged": "C:\\Users\\usuario\\.gradle\\daemon\\8.0\\es.ua.eps.exercice2.app-merged_res-40:\\xml_basic_preferences.xml.flat",
+        "source": "C:\\Users\\usuario\\.gradle\\daemon\\8.0\\es.ua.eps.exercice2.app-main-42:\\xml\\basic_preferences.xml"
+    },
+    {
+        "merged": "C:\\Users\\usuario\\.gradle\\daemon\\8.0\\es.ua.eps.exercice2.app-merged_res-40:\\mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "C:\\Users\\usuario\\.gradle\\daemon\\8.0\\es.ua.eps.exercice2.app-main-42:\\mipmap-anydpi-v26\\ic_launcher.xml"
+    },
+    {
+        "merged": "C:\\Users\\usuario\\.gradle\\daemon\\8.0\\es.ua.eps.exercice2.app-merged_res-40:\\mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\usuario\\.gradle\\daemon\\8.0\\es.ua.eps.exercice2.app-main-42:\\mipmap-xxhdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\usuario\\.gradle\\daemon\\8.0\\es.ua.eps.exercice2.app-merged_res-40:\\mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\usuario\\.gradle\\daemon\\8.0\\es.ua.eps.exercice2.app-main-42:\\mipmap-xxhdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\usuario\\.gradle\\daemon\\8.0\\es.ua.eps.exercice2.app-merged_res-40:\\mipmap-xhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\usuario\\.gradle\\daemon\\8.0\\es.ua.eps.exercice2.app-main-42:\\mipmap-xhdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\usuario\\.gradle\\daemon\\8.0\\es.ua.eps.exercice2.app-merged_res-40:\\menu_activity_main_drawer.xml.flat",
+        "source": "C:\\Users\\usuario\\.gradle\\daemon\\8.0\\es.ua.eps.exercice2.app-main-42:\\menu\\activity_main_drawer.xml"
+    },
+    {
+        "merged": "C:\\Users\\usuario\\.gradle\\daemon\\8.0\\es.ua.eps.exercice2.app-merged_res-40:\\layout_app_bar_settings.xml.flat",
+        "source": "C:\\Users\\usuario\\.gradle\\daemon\\8.0\\es.ua.eps.exercice2.app-main-42:\\layout\\app_bar_settings.xml"
+    },
+    {
+        "merged": "C:\\Users\\usuario\\.gradle\\daemon\\8.0\\es.ua.eps.exercice2.app-merged_res-40:\\layout_nav_header_settings.xml.flat",
+        "source": "C:\\Users\\usuario\\.gradle\\daemon\\8.0\\es.ua.eps.exercice2.app-main-42:\\layout\\nav_header_settings.xml"
+    },
+    {
+        "merged": "C:\\Users\\usuario\\.gradle\\daemon\\8.0\\es.ua.eps.exercice2.app-merged_res-40:\\mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\usuario\\.gradle\\daemon\\8.0\\es.ua.eps.exercice2.app-main-42:\\mipmap-xhdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\usuario\\.gradle\\daemon\\8.0\\es.ua.eps.exercice2.app-merged_res-40:\\xml_backup_rules.xml.flat",
+        "source": "C:\\Users\\usuario\\.gradle\\daemon\\8.0\\es.ua.eps.exercice2.app-main-42:\\xml\\backup_rules.xml"
+    },
+    {
+        "merged": "C:\\Users\\usuario\\.gradle\\daemon\\8.0\\es.ua.eps.exercice2.app-merged_res-40:\\menu_activity_settings_drawer.xml.flat",
+        "source": "C:\\Users\\usuario\\.gradle\\daemon\\8.0\\es.ua.eps.exercice2.app-main-42:\\menu\\activity_settings_drawer.xml"
+    },
+    {
+        "merged": "C:\\Users\\usuario\\.gradle\\daemon\\8.0\\es.ua.eps.exercice2.app-merged_res-40:\\xml_adv_preferences.xml.flat",
+        "source": "C:\\Users\\usuario\\.gradle\\daemon\\8.0\\es.ua.eps.exercice2.app-main-42:\\xml\\adv_preferences.xml"
+    },
+    {
+        "merged": "C:\\Users\\usuario\\.gradle\\daemon\\8.0\\es.ua.eps.exercice2.app-merged_res-40:\\layout_app_bar_main.xml.flat",
+        "source": "C:\\Users\\usuario\\.gradle\\daemon\\8.0\\es.ua.eps.exercice2.app-main-42:\\layout\\app_bar_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\usuario\\.gradle\\daemon\\8.0\\es.ua.eps.exercice2.app-merged_res-40:\\drawable_ic_launcher_background.xml.flat",
+        "source": "C:\\Users\\usuario\\.gradle\\daemon\\8.0\\es.ua.eps.exercice2.app-main-42:\\drawable\\ic_launcher_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\usuario\\.gradle\\daemon\\8.0\\es.ua.eps.exercice2.app-merged_res-40:\\mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\usuario\\.gradle\\daemon\\8.0\\es.ua.eps.exercice2.app-main-42:\\mipmap-xxxhdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\usuario\\.gradle\\daemon\\8.0\\es.ua.eps.exercice2.app-merged_res-40:\\drawable_ic_launcher_foreground.xml.flat",
+        "source": "C:\\Users\\usuario\\.gradle\\daemon\\8.0\\es.ua.eps.exercice2.app-main-42:\\drawable\\ic_launcher_foreground.xml"
+    }
+]
