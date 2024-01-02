@@ -6,13 +6,83 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
+    <Button
+        android:id="@+id/seeExternalStorage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="VER ESTADO DE ALMACENAMIENTO EXTERNO"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="80dp" />
+
+    <EditText
+        android:id="@+id/textToSave"
+        android:layout_marginTop="80dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:hint="Texto a guardar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/seeExternalStorage" />
+
+    <Button
+        android:id="@+id/addFile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="AÑADIR AL FICHERO"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textToSave"
+        android:layout_marginTop="80dp"
+        android:layout_marginStart="40dp"/>
+
+    <Button
+        android:id="@+id/seeFile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="VER FICHERO"
+        app:layout_constraintStart_toEndOf="@id/addFile"
+        app:layout_constraintTop_toTopOf="@id/addFile"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <TextView
+        android:id="@+id/moveToText"
+        android:layout_marginTop="40dp"
+        android:layout_marginStart="15dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Mover fichero a..."
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/addFile" />
+
+    <Button
+        android:id="@+id/externalStorageButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="EXTERNAL STORAGE"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/moveToText"
+        android:layout_marginTop="40dp"
+        android:layout_marginStart="40dp"/>
+
+    <Button
+        android:id="@+id/internalStorageButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="INTERNAL STORAGE"
+        app:layout_constraintStart_toEndOf="@id/externalStorageButton"
+        app:layout_constraintTop_toTopOf="@id/externalStorageButton"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <Button
+        android:id="@+id/closeButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CERRAR"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="20dp"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
