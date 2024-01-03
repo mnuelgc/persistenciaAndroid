@@ -3,44 +3,34 @@ package es.ua.eps.exercice4
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Button
 import android.widget.EditText
 import androidx.core.app.NavUtils
 import es.ua.eps.exercice4.databinding.ActivityMainBinding
+import es.ua.eps.exercice4.databinding.ActivityUserDataBinding
 
-class MainActivity : AppCompatActivity() {
+class UserDataActivity : AppCompatActivity() {
 
-    lateinit var viewBinding: ActivityMainBinding
-
-    lateinit var usernameEditText : EditText
-    lateinit var passwordEditText : EditText
+    lateinit var viewBinding: ActivityUserDataBinding
 
     lateinit var loginButton: Button
-    lateinit var closeButton: Button
-
+    lateinit var backButton: Button
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        viewBinding = ActivityMainBinding.inflate(layoutInflater)
+        viewBinding = ActivityUserDataBinding.inflate(layoutInflater)
         setContentView(viewBinding.root)
 
-        supportActionBar?.title = "SQLite"
-
-        loginButton = viewBinding.loginButton
-
-        loginButton.setOnClickListener{
-            val intent = Intent(this, UserDataActivity::class.java)
-            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
-            startActivity(intent)
-        }
-
-        closeButton = viewBinding.closeButton
-        closeButton.setOnClickListener{
+        backButton = viewBinding.userDataBackButton
+        backButton.setOnClickListener{
             finish();
         }
+
+        supportActionBar?.setHomeButtonEnabled(true)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+        supportActionBar?.title = "User Data"
 
     }
 
@@ -54,14 +44,18 @@ class MainActivity : AppCompatActivity() {
 
         when(id)
         {
+            android.R.id.home ->{
+                finish()
+                return true
+            }
             R.id.manageUsers ->  {
                 val intent = Intent(this, UserManagementActivity::class.java)
                 intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
                 startActivity(intent)
                 return true
             }
-        }
 
+        }
 
         return super.onOptionsItemSelected(item)
     }

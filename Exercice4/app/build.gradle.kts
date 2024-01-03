@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace = "es.ua.eps.exercice4"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "es.ua.eps.exercice4"
@@ -32,6 +32,10 @@ android {
     }
     kotlinOptions {
         jvmTarget = "1.8"
+    }
+
+    buildFeatures {
+        viewBinding = true
     }
 }
 
