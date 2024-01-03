@@ -17,7 +17,7 @@ tools:context=".UserDataActivity">
     app:layout_constraintTop_toTopOf="parent" />
 
 <TextView
-    android:id="@+id/welcomeNameValue"
+    android:id="@+id/userDataNameValue"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:text="User Name"
@@ -33,7 +33,7 @@ tools:context=".UserDataActivity">
     android:layout_marginTop="75dp"
     android:layout_marginStart="5dp"
     app:layout_constraintStart_toStartOf="@id/welcomeLabel"
-    app:layout_constraintTop_toTopOf= "@id/welcomeNameValue" />
+    app:layout_constraintTop_toTopOf= "@id/userDataNameValue" />
 
 <TextView
     android:id="@+id/userDataUserNameValue"
@@ -41,7 +41,7 @@ tools:context=".UserDataActivity">
     android:layout_height="wrap_content"
     android:text="username"
     android:layout_marginStart="2dp"
-    app:layout_constraintStart_toStartOf="@id/welcomeNameValue"
+    app:layout_constraintStart_toStartOf="@id/userDataNameValue"
     app:layout_constraintTop_toTopOf="@id/userDataUserName" />
 
 <Button

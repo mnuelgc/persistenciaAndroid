@@ -11,7 +11,7 @@ tools:context=".UpdateUserActivity">
     android:id="@+id/updateLoginUserNameEditText"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:hint="Login"
+    android:hint="User Name"
     android:layout_marginTop="50dp"
     android:layout_marginStart="2dp"
     app:layout_constraintStart_toStartOf="parent"
@@ -24,7 +24,7 @@ tools:context=".UpdateUserActivity">
     android:layout_height="wrap_content"
     android:layout_marginTop="50dp"
     android:hint="Password"
-    android:inputType="textVisiblePassword"
+    android:inputType="textPassword"
     app:layout_constraintStart_toStartOf="@id/updateLoginUserNameEditText"
     app:layout_constraintTop_toBottomOf="@id/updateLoginUserNameEditText" />
 
