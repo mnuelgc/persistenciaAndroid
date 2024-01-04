@@ -102,7 +102,7 @@ class NewUserActivity : AppCompatActivity() {
             Toast.makeText(this, "Can't create user with  empty fields", Toast.LENGTH_SHORT).show()
         } else {
             lifecycleScope.launch {
-                val user = UserEntity(userName, pass, userCompleteName, userCompleteName)
+                val user = UserEntity(0,userName, pass, userCompleteName, userCompleteName)
                 db.userDao().insert(user)
             }
         }

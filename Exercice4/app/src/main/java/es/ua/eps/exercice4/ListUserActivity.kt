@@ -48,9 +48,9 @@ class ListUserActivity : AppCompatActivity() {
 
         sqLiteHelper = UsersSQLiteHelper(this)
 
-        val userList = sqLiteHelper.getUsers()
+      /*  val userList = sqLiteHelper.getUsers()
         adapter?.addItems(userList)
-
+*/
         backButton.setOnClickListener{
             finish()
         }

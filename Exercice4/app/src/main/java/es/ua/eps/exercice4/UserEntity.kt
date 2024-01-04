@@ -5,73 +5,62 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity(tableName = "user_database")
-class UserEntity(
-        newNombre_usuario : String,
-        newPassword : String,
-        newNombre_completo : String,
-        newEmail : String)  {
+data class UserEntity(
 
     @PrimaryKey(autoGenerate = true)
-    private var ID = 0
+     var id : Long = 0,
 
     @ColumnInfo(name = "nombre_usuario")
-    private var nombre_usuario = newNombre_usuario
+     var nombreUsuario : String,
 
     @ColumnInfo(name = "password")
-    private var password = newPassword
+     var password : String,
 
     @ColumnInfo(name = "nombre_completo")
-    private var nombre_completo = newNombre_completo
+     var nombreCompleto : String,
 
     @ColumnInfo(name = "email")
-    private var email = newEmail
-        constructor(
-            newID : Int,
-            newNombre_usuario : String,
-            newPassword : String,
-            newNombre_completo : String,
-            newEmail : String) : this(newNombre_usuario, newPassword, newNombre_completo, newEmail) {
-            this.ID = newID
-        }
+     var email : String
+){
 
-    fun setID(newID : Int) {
-        ID = newID
+    fun setField_id(newID : Long) {
+        id = newID
     }
 
-    fun setUserName(newUserName : String){
-        nombre_usuario = newUserName
+    fun setField_userName(newUserName : String){
+        nombreUsuario = newUserName
     }
 
-    fun setPassword(newPassword: String){
+    fun setField_password(newPassword: String){
         password = newPassword
     }
 
-    fun setCompleteName(newNombre_completo: String){
-        nombre_completo = newNombre_completo
+    fun setField_completeName(newNombre_completo: String){
+        nombreCompleto = newNombre_completo
     }
 
-    fun getEmail(newEmail: String){
+    fun setField_email(newEmail: String){
         email = newEmail
     }
 
-    fun getID() : Int {
-        return ID
+    fun getField_id() : Long {
+        return id
     }
 
-    fun getUserName() : String {
-        return nombre_usuario
+    fun getField_userName() : String {
+        return nombreUsuario
     }
 
-    fun getPassword() : String {
+    fun getField_password() : String {
         return password
     }
 
-    fun getCompleteName() : String {
-        return nombre_completo
+    fun getField_completeName() : String {
+        return nombreCompleto
     }
 
-    fun getEmail() : String {
+    fun getField_email() : String {
         return email
     }
 
-    }
+}

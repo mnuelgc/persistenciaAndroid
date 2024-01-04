@@ -15,11 +15,14 @@ import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.Spinner
 import android.widget.Toast
+import androidx.activity.contextaware.withContextAvailable
 import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.lifecycleScope
 import androidx.room.Room
 import es.ua.eps.exercice4.databinding.ActivityUserManagementBinding
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 
 class UserManagementActivity : AppCompatActivity() {
@@ -37,7 +40,7 @@ class UserManagementActivity : AppCompatActivity() {
     var userPositionInArray : Int = 0
     private lateinit var sqliteHelper: UsersSQLiteHelper
     private lateinit var users: ArrayList<UserModel>
-    private lateinit var usersEntity : ArrayList<UserEntity>
+    private lateinit var usersEntity : List<UserEntity>
 
     private lateinit var db : AppDatabase
 
@@ -163,37 +166,44 @@ class UserManagementActivity : AppCompatActivity() {
             usersEntity = db.userDao().getAllUsers()
 
 
-            val userIDS = ArrayList<Int>()
+            val userIDS = ArrayList<Long>()
             val userUsernames = ArrayList<String>()
             val userPasswords = ArrayList<String>()
             val userCompleteNames = ArrayList<String>()
             val userEmails = ArrayList<String>()
 
             for (user in usersEntity) {
-                userIDS.add(user.getID())
-                userUsernames.add(user.getUserName())
-                userPasswords.add(user.getPassword())
-                userCompleteNames.add(user.getCompleteName())
-                userEmails.add(user.getEmail())
+                userIDS.add(user.getField_id())
+                userUsernames.add(user.getField_userName())
+                userPasswords.add(user.getField_password())
+                userCompleteNames.add(user.getField_completeName())
+                userEmails.add(user.getField_email())
             }
 
-            val adapterE = ArrayAdapter(this, android.R.layout.simple_spinner_item, userUsernames)
-            val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, userUsernames)
-            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-            userDropdown.adapter = adapter
+            withContext(Dispatchers.IO)
+            {
+                val adapter = ArrayAdapter(
+                    this@UserManagementActivity,
+                    android.R.layout.simple_spinner_item,
+                    userUsernames
+                )
+                adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
 
-            userDropdown.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-                override fun onItemSelected(
-                    parent: AdapterView<*>?,
-                    view: View?,
-                    position: Int,
-                    id: Long
-                ) {
-                    userPositionInArray = position
+                userDropdown.adapter = adapter
 
+                userDropdown.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+                    override fun onItemSelected(
+                        parent: AdapterView<*>?,
+                        view: View?,
+                        position: Int,
+                        id: Long
+                    ) {
+                        userPositionInArray = position
+
+                    }
+
+                    override fun onNothingSelected(parent: AdapterView<*>?) {}
                 }
-
-                override fun onNothingSelected(parent: AdapterView<*>?) {}
             }
         }
     }

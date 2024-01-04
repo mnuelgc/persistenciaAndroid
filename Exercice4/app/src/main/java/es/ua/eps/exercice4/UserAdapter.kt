@@ -20,8 +20,8 @@ class UserAdapter : RecyclerView.Adapter<UserAdapter.UserViewHolder>() {
         private var userfullName = view.findViewById<TextView>(R.id.fullnameLabel)
 
         fun bindView(user : UserEntity){
-            userName.text = user.getUserName()
-            userfullName.text = user.getCompleteName()
+            userName.text = user.getField_userName()
+            userfullName.text = user.getField_completeName()
         }
     }
 
