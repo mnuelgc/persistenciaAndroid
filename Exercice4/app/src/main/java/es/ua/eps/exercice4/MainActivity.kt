@@ -1,5 +1,6 @@
 package es.ua.eps.exercice4
 
+import android.content.ContentValues
 import android.content.Intent
 import android.net.Uri
 import android.os.Build
@@ -54,21 +55,34 @@ class MainActivity : AppCompatActivity() {
         loginButton = viewBinding.loginButton
 
         loginButton.setOnClickListener {
+            val us = usernameEditText.text.toString()
+            val password = passwordEditText.text.toString()
+            var loginSuccessful = false
+            if(us.isNotEmpty() && password.isNotEmpty()){
+                val users = getUsers()
+                println("users -> ${users.size}")
 
-            val user = sqliteHelper.login(
-                usernameEditText.text.toString(),
-                passwordEditText.text.toString()
-            )
+                for (user in users) {
+                    val username = user.getAsString(UserContentProvider.username)
+                    val storedPassword = user.getAsString(UserContentProvider.password)
+                    val userCompleteName = user.getAsString(UserContentProvider.nombreCompleto)
 
-            if (user != null) {
-                val intent = Intent(this, UserDataActivity::class.java)
-                intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
-                intent.putExtra(USER_NAME, user.getUserName())
-                intent.putExtra(USER_COMPLETE_NAME, user.getCompleteName())
-                startActivity(intent)
-            }
-            else{
-                Toast.makeText(this, "Cant login wrong data", Toast.LENGTH_SHORT).show()
+                    println("us ${us} -> $username")
+                    println("pas $password -> $storedPassword")
+                    if (us.equals(username) && password.equals(storedPassword)) {
+                        val intentUser = Intent(this@MainActivity, UserDataActivity::class.java)
+                        intentUser.putExtra(USER_NAME, username)
+                        intentUser.putExtra(USER_COMPLETE_NAME, userCompleteName)
+                        startActivity(intentUser)
+                        loginSuccessful = true
+                        break
+                    }
+                }
+                if (!loginSuccessful) {
+                    Toast.makeText(this, "Error in data", Toast.LENGTH_SHORT).show()
+                }
+            }else{
+                Toast.makeText(this,"Error blank fields", Toast.LENGTH_SHORT).show()
             }
         }
 
@@ -78,6 +92,53 @@ class MainActivity : AppCompatActivity() {
         }
 
     }
+
+
+private fun getUsers(): ArrayList<ContentValues>{
+    val cursor = contentResolver.query(
+        UserContentProvider.CONTENT_URI,
+        arrayOf(UserContentProvider.id, UserContentProvider.username, UserContentProvider.password, UserContentProvider.nombreCompleto, UserContentProvider.email),
+        null,
+        null,
+        UserContentProvider.id
+    )
+
+    val users = ArrayList<ContentValues>()
+
+    cursor?.let {
+
+        val idColumnIndex = it.getColumnIndex(UserContentProvider.id)
+        val usernameColumnIndex = it.getColumnIndex(UserContentProvider.username)
+        val passwordColumnIndex = it.getColumnIndex(UserContentProvider.password)
+        val completenameColumnIndex = it.getColumnIndex(UserContentProvider.nombreCompleto)
+
+        while (it.moveToNext()) {
+            println("Dent")
+
+            println("idIndx $idColumnIndex idUserName $usernameColumnIndex id pass $passwordColumnIndex idcomplete" +
+                    " $completenameColumnIndex" )
+
+
+            // Verificar que los índices sean válidos
+            if (idColumnIndex >= 0 && usernameColumnIndex >= 0 &&
+                passwordColumnIndex >= 0 && completenameColumnIndex >= 0
+            ) {
+                println("Harvey")
+
+                // Obtener los datos usando los índices
+                val cv = ContentValues()
+                cv.put(UserContentProvider.id, it.getInt(idColumnIndex))
+                cv.put(UserContentProvider.username, it.getString(usernameColumnIndex))
+                cv.put(UserContentProvider.password, it.getString(passwordColumnIndex))
+                cv.put(UserContentProvider.nombreCompleto, it.getString(completenameColumnIndex))
+                users.add(cv)
+            }
+        }
+    }
+    cursor?.close()
+    return users
+
+}
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu, menu)

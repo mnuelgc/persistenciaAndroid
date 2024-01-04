@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".UserDataActivity">
+
+    <TextView
+        android:id="@+id/welcomeLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Welcome"
+        android:layout_marginTop="100dp"
+        android:layout_marginStart="80dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/userDataNameValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="User Name"
+        android:layout_marginStart="50dp"
+        app:layout_constraintStart_toEndOf="@id/welcomeLabel"
+        app:layout_constraintTop_toTopOf="@id/welcomeLabel" />
+
+    <TextView
+        android:id="@+id/userDataUserName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="User Name"
+        android:layout_marginTop="75dp"
+        android:layout_marginStart="5dp"
+        app:layout_constraintStart_toStartOf="@id/welcomeLabel"
+        app:layout_constraintTop_toTopOf= "@id/userDataNameValue" />
+
+    <TextView
+        android:id="@+id/userDataUserNameValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="username"
+        android:layout_marginStart="2dp"
+        app:layout_constraintStart_toStartOf="@id/userDataNameValue"
+        app:layout_constraintTop_toTopOf="@id/userDataUserName" />
+
+    <Button
+        android:id="@+id/userDataBackButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Back"
+        android:layout_marginBottom="25dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -6,26 +6,26 @@ import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 
-class UsersSQLiteHelper(context : Context)  : SQLiteOpenHelper(context, DATABASE_NAME,null, DATABASE_VERSION){
+class UsersSQLiteHelper(context : Context?)  : SQLiteOpenHelper(context, DATABASE_NAME,null, DATABASE_VERSION){
 
     companion object{
         private const val DATABASE_VERSION = 1
-        private const val DATABASE_NAME = "UserDB"
+        private const val DATABASE_NAME = "User_DB"
         private const val TABLE_NAME = "Usuarios"
-        private const val ID = "ID"
+        private const val ID = "_ID"
         private const val NOMBRE_USUARIO = "username"
         private const val PASSWORD = "password"
         private const val NOMBRE_COMPLETO = "nombre_completo"
         private const val EMAIL = "Email"
     }
     override fun onCreate(db: SQLiteDatabase?) {
-        val CREATE_USERS_TABLE = "CREATE TABLE ${TABLE_NAME}" +
+        val CREATE_USERS_TABLE = ("CREATE TABLE ${TABLE_NAME}" +
                 "(${ID} INTEGER PRIMARY KEY AUTOINCREMENT" +
                 " ,${NOMBRE_USUARIO} TEXT" +
                 " ,${PASSWORD} TEXT" +
                 " ,${NOMBRE_COMPLETO} TEXT" +
                 " ,${EMAIL} TEXT" +
-                    ")"
+                    ")")
         db?.execSQL(CREATE_USERS_TABLE)
     }
 

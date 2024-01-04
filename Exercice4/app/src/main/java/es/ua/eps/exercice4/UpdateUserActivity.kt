@@ -1,5 +1,6 @@
 package es.ua.eps.exercice4
 
+import android.content.ContentValues
 import android.content.Intent
 import android.net.Uri
 import android.os.Build
@@ -138,11 +139,18 @@ class UpdateUserActivity : AppCompatActivity() {
                 .show()
         } else {
             if (userID != -1) {
-                val user = UserModel(userID, userName, pass, userCompleteName, userCompleteName)
+                var contentValue = ContentValues()
+                contentValue.put(UserContentProvider.id,userID)
+                contentValue.put(UserContentProvider.username, userName)
+                contentValue.put(UserContentProvider.password, pass)
+                contentValue.put(UserContentProvider.nombreCompleto, userCompleteName)
+                contentValue.put(UserContentProvider.email, userCompleteName)
 
-                if (sqliteHelper.updateUser(user) > -1) {
+                try{
+                    contentResolver.update(UserContentProvider.CONTENT_URI, contentValue,"_ID= ?", arrayOf(userID.toString()))
                     Toast.makeText(this, "User updated", Toast.LENGTH_SHORT).show()
-                } else {
+                }catch( e: Exception)
+                {
                     Toast.makeText(this, "Error can't update", Toast.LENGTH_SHORT).show()
                 }
             } else {

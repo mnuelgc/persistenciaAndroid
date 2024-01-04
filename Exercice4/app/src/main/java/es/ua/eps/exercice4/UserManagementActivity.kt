@@ -189,18 +189,11 @@ class UserManagementActivity : AppCompatActivity() {
             builder.setTitle("Delete User")
             builder.setMessage("Do you really want to delete the selected user?")
             builder.setCancelable(true)
+            val userID= users[userPositionInArray].getID()
             builder.setPositiveButton("OK") { dialog, _ ->
-                if (sqliteHelper.deleteUser(users[userPositionInArray].getID()) > -1) {
-
-                    val usuarioBorrado = users.removeAt(userPositionInArray)
-                    refreshUsers()
-                    dialog.dismiss()
-                    Toast.makeText(
-                        this,
-                        "Usuario ${usuarioBorrado.getUserName()}. eliminado correctamente",
-                        Toast.LENGTH_SHORT
-                    ).show()
-                }
+                contentResolver.delete(UserContentProvider.CONTENT_URI, "_ID = ?", arrayOf(userID.toString()))
+                refreshUsers()
+                dialog.dismiss()
             }
             builder.setNegativeButton("CANCEL") { dialog, _ ->
                 dialog.dismiss()

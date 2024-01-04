@@ -1,5 +1,6 @@
 package es.ua.eps.exercice4
 
+import android.content.ContentValues
 import android.content.Intent
 import android.net.Uri
 import android.os.Build
@@ -27,13 +28,10 @@ class NewUserActivity : AppCompatActivity() {
     lateinit var newButton: Button
     lateinit var backButton: Button
 
-    private lateinit var sqliteHelper: UsersSQLiteHelper
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewBinding = ActivityNewUserBinding.inflate(layoutInflater)
         setContentView(viewBinding.root)
-
-        sqliteHelper = UsersSQLiteHelper(this)
 
         supportActionBar?.setHomeButtonEnabled(true)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
@@ -65,18 +63,22 @@ class NewUserActivity : AppCompatActivity() {
             Toast.makeText(this, "Can't create user with  empty fields", Toast.LENGTH_SHORT).show()
             return false
         } else {
-            val user = UserModel(userName, pass, userCompleteName, userCompleteName)
-            val status = sqliteHelper.addUser(user)
+            var contentValues = ContentValues()
+            contentValues.put(UserContentProvider.username, userName)
+            contentValues.put(UserContentProvider.password, pass)
+            contentValues.put(UserContentProvider.nombreCompleto, userCompleteName)
+            contentValues.put(UserContentProvider.email, userCompleteName)
 
-            if (status > -1) {
+            try{
+                contentResolver.insert(UserContentProvider.CONTENT_URI, contentValues)
                 Toast.makeText(this, "User added", Toast.LENGTH_SHORT).show()
-                println(user.toPrint())
-
                 return true
 
-            } else {
+            }catch (e : Exception)
+            {
+                e.printStackTrace()
                 Toast.makeText(this, "Recorded not saved", Toast.LENGTH_SHORT).show()
-                return false
+                return true
             }
         }
     }
