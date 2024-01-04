@@ -1,23 +1,38 @@
 package es.ua.eps.exercice4
 
-class UserModel(
-                newNombre_usuario : String,
-                newPassword : String,
-                newNombre_completo : String,
-                newEmail : String)  {
-    private var ID = 0
-    private var nombre_usuario = newNombre_usuario
-    private var password = newPassword
-    private var nombre_completo = newNombre_completo
-    private var email = newEmail
-    constructor(
-        newID : Int,
+import androidx.room.ColumnInfo
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
+@Entity(tableName = "user_database")
+class UserEntity(
         newNombre_usuario : String,
         newPassword : String,
         newNombre_completo : String,
-        newEmail : String) : this(newNombre_usuario, newPassword, newNombre_completo, newEmail) {
+        newEmail : String)  {
+
+    @PrimaryKey(autoGenerate = true)
+    private var ID = 0
+
+    @ColumnInfo(name = "nombre_usuario")
+    private var nombre_usuario = newNombre_usuario
+
+    @ColumnInfo(name = "password")
+    private var password = newPassword
+
+    @ColumnInfo(name = "nombre_completo")
+    private var nombre_completo = newNombre_completo
+
+    @ColumnInfo(name = "email")
+    private var email = newEmail
+        constructor(
+            newID : Int,
+            newNombre_usuario : String,
+            newPassword : String,
+            newNombre_completo : String,
+            newEmail : String) : this(newNombre_usuario, newPassword, newNombre_completo, newEmail) {
             this.ID = newID
-    }
+        }
 
     fun setID(newID : Int) {
         ID = newID
@@ -59,11 +74,4 @@ class UserModel(
         return email
     }
 
-    fun toPrint() : String
-    {
-        var string = ""
-
-        string += "${ID.toString()} ${nombre_usuario} ${password} ${nombre_completo} ${email}"
-        return string
     }
-}

@@ -8,9 +8,9 @@ import androidx.recyclerview.widget.RecyclerView
 
 class UserAdapter : RecyclerView.Adapter<UserAdapter.UserViewHolder>() {
 
-    private var users: ArrayList<UserModel> = ArrayList()
+    private var users: ArrayList<UserEntity> = ArrayList()
 
-    fun addItems(items: ArrayList<UserModel>){
+    fun addItems(items: ArrayList<UserEntity>){
         this.users = items
         notifyDataSetChanged()
     }
@@ -19,7 +19,7 @@ class UserAdapter : RecyclerView.Adapter<UserAdapter.UserViewHolder>() {
         private var userName = view.findViewById<TextView>(R.id.userLabel)
         private var userfullName = view.findViewById<TextView>(R.id.fullnameLabel)
 
-        fun bindView(user: UserModel){
+        fun bindView(user : UserEntity){
             userName.text = user.getUserName()
             userfullName.text = user.getCompleteName()
         }

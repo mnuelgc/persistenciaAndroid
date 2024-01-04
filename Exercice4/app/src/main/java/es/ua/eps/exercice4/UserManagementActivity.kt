@@ -7,20 +7,20 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Environment
 import android.provider.Settings
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Button
-import android.widget.EditText
 import android.widget.Spinner
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
-import androidx.core.app.NavUtils
-import es.ua.eps.exercice4.databinding.ActivityMainBinding
+import androidx.lifecycle.lifecycleScope
+import androidx.room.Room
 import es.ua.eps.exercice4.databinding.ActivityUserManagementBinding
+import kotlinx.coroutines.launch
+
 
 class UserManagementActivity : AppCompatActivity() {
 
@@ -37,6 +37,9 @@ class UserManagementActivity : AppCompatActivity() {
     var userPositionInArray : Int = 0
     private lateinit var sqliteHelper: UsersSQLiteHelper
     private lateinit var users: ArrayList<UserModel>
+    private lateinit var usersEntity : ArrayList<UserEntity>
+
+    private lateinit var db : AppDatabase
 
 
     companion object{
@@ -58,6 +61,8 @@ class UserManagementActivity : AppCompatActivity() {
         supportActionBar?.title = "User Management"
 
         sqliteHelper = UsersSQLiteHelper(this)
+
+        db = Room.databaseBuilder(this, AppDatabase::class.java, "databaseuser.db").allowMainThreadQueries().build()
 
         userDropdown = viewBinding.selectUser
         newUserButton = viewBinding.newUserButton
@@ -153,33 +158,43 @@ class UserManagementActivity : AppCompatActivity() {
 
     fun refreshUsers()
     {
-        users = sqliteHelper.getUsers()
+        lifecycleScope.launch {
+            users = sqliteHelper.getUsers()
+            usersEntity = db.userDao().getAllUsers()
 
-        val userIDS = ArrayList<Int>()
-        val userUsernames = ArrayList<String>()
-        val userPasswords = ArrayList<String>()
-        val userCompleteNames = ArrayList<String>()
-        val userEmails = ArrayList<String>()
 
-        for(user in users)
-        {
-            userIDS.add(user.getID())
-            userUsernames.add(user.getUserName())
-            userPasswords.add(user.getPassword())
-            userCompleteNames.add(user.getCompleteName())
-            userEmails.add(user.getEmail())
-        }
+            val userIDS = ArrayList<Int>()
+            val userUsernames = ArrayList<String>()
+            val userPasswords = ArrayList<String>()
+            val userCompleteNames = ArrayList<String>()
+            val userEmails = ArrayList<String>()
 
-        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, userUsernames)
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        userDropdown.adapter = adapter
-
-        userDropdown.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-                userPositionInArray = position
-
+            for (user in usersEntity) {
+                userIDS.add(user.getID())
+                userUsernames.add(user.getUserName())
+                userPasswords.add(user.getPassword())
+                userCompleteNames.add(user.getCompleteName())
+                userEmails.add(user.getEmail())
             }
-            override fun onNothingSelected(parent: AdapterView<*>?){}
+
+            val adapterE = ArrayAdapter(this, android.R.layout.simple_spinner_item, userUsernames)
+            val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, userUsernames)
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+            userDropdown.adapter = adapter
+
+            userDropdown.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+                override fun onItemSelected(
+                    parent: AdapterView<*>?,
+                    view: View?,
+                    position: Int,
+                    id: Long
+                ) {
+                    userPositionInArray = position
+
+                }
+
+                override fun onNothingSelected(parent: AdapterView<*>?) {}
+            }
         }
     }
 
