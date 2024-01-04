@@ -71,16 +71,16 @@ class MainActivity : AppCompatActivity() {
                         val intentUser = Intent(this@MainActivity, UserDataActivity::class.java)
                         intentUser.putExtra(USER_NAME, u)
                         intentUser.putExtra(USER_COMPLETE_NAME, userCompleteName)
-                        startActivity(intentUser)   
+                        startActivity(intentUser)
                         loginSuccessful = true
                         break
                     }
                 }
                 if (!loginSuccessful) {
-                    Toast.makeText(this, "Error usuario/password incorrectos", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Error in data", Toast.LENGTH_SHORT).show()
                 }
             }else{
-                Toast.makeText(this,"Por favor rellene los campos obligatorios", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this,"Error blank fields", Toast.LENGTH_SHORT).show()
             }
         }
 
