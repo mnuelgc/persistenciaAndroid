@@ -122,7 +122,6 @@ class NewUserActivity : AppCompatActivity() {
         if (Build.VERSION.SDK_INT >= 30) {
             if (BackUpManager.checkExternalStorage) {
                 if (Environment.isExternalStorageManager()) {
-                    //CREATE BACKUP
                     BackUpManager.backupSave(this)
                 }
             }

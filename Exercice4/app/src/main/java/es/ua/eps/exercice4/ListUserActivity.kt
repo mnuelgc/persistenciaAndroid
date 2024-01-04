@@ -50,9 +50,6 @@ class ListUserActivity : AppCompatActivity() {
         recyclerView.adapter = adapter
 
         db = BackUpManager.getDataBase(this)
-  /*      val userList = sqLiteHelper.getUsers()
-        adapter?.addItems(userList)
-*/
         val userList = db.userDao().getAllUsers()
         adapter?.addItems(userList)
 

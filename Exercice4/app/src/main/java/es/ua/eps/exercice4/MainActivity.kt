@@ -54,25 +54,6 @@ class MainActivity : AppCompatActivity() {
 
         loginButton = viewBinding.loginButton
 
-      /*  loginButton.setOnClickListener {
-
-            val user = sqliteHelper.login(
-                usernameEditText.text.toString(),
-                passwordEditText.text.toString()
-            )
-
-            if (user != null) {
-                val intent = Intent(this, UserDataActivity::class.java)
-                intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
-                intent.putExtra(USER_NAME, user.getUserName())
-                intent.putExtra(USER_COMPLETE_NAME, user.getCompleteName())
-                startActivity(intent)
-            }
-            else{
-                Toast.makeText(this, "Cant login wrong data", Toast.LENGTH_SHORT).show()
-            }
-        }*/
-
         loginButton.setOnClickListener {
 
             val user = db.userDao().login(
