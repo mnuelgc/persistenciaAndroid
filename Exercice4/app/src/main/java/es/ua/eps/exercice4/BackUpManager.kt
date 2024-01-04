@@ -24,10 +24,10 @@ object BackUpManager {
     }
     public fun restoreBackup(context : Context){
         val backupDir = File(Environment.getExternalStorageDirectory(), "BackUps")
-        val backupFile = File(backupDir, "UserDB")
+        val backupFile = File(backupDir, "UserDBRoom")
 
         if (backupFile.exists()) {
-            val dbPath = context.getDatabasePath("UserDB").absolutePath
+            val dbPath = context.getDatabasePath("UserDBRoom").absolutePath
             try {
                 copyFile(backupFile, File(dbPath))
                 Toast.makeText(context, "Database Restored", Toast.LENGTH_SHORT).show()
@@ -55,13 +55,14 @@ object BackUpManager {
     }
 
     public fun backupSave(context : Context){
-        val db = context.getDatabasePath("UserDB")
+
+        val db = context.getDatabasePath("UserDBRoom")
         if (db.exists()) {
             val backupDir = File(Environment.getExternalStorageDirectory(), "BackUps")
             if (!backupDir.exists()) {
                 backupDir.mkdirs()
             }
-            val backupFile = File(backupDir, "UserDB")
+            val backupFile = File(backupDir, "UserDBRoom")
             try {
                 copyFile(db, backupFile)
                 Toast.makeText(context, "BackUp done", Toast.LENGTH_SHORT).show()
@@ -84,5 +85,10 @@ object BackUpManager {
             originChannel.close()
             destChannel.close()
         }
+    }
+
+    public fun getDataBase(context: Context) : AppDatabase
+    {
+        return AppDatabase.getDatabase(context)
     }
 }

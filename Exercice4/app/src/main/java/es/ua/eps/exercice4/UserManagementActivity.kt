@@ -38,7 +38,6 @@ class UserManagementActivity : AppCompatActivity() {
     lateinit var backButton : Button
 
     var userPositionInArray : Int = 0
-    private lateinit var sqliteHelper: UsersSQLiteHelper
     private lateinit var users: ArrayList<UserModel>
     private lateinit var usersEntity : List<UserEntity>
 
@@ -63,9 +62,8 @@ class UserManagementActivity : AppCompatActivity() {
 
         supportActionBar?.title = "User Management"
 
-        sqliteHelper = UsersSQLiteHelper(this)
 
-        db = Room.databaseBuilder(this, AppDatabase::class.java, "databaseuser.db").allowMainThreadQueries().build()
+        db = BackUpManager.getDataBase(this)
 
         userDropdown = viewBinding.selectUser
         newUserButton = viewBinding.newUserButton
@@ -74,7 +72,7 @@ class UserManagementActivity : AppCompatActivity() {
         listUserButton = viewBinding.listUserButton
         backButton = viewBinding.backButton
 
-        refreshUsers()
+        lifecycleScope.launch {  refreshUsers() }
 
         newUserButton.setOnClickListener{
             val intent = Intent(this@UserManagementActivity, NewUserActivity::class.java)
@@ -85,10 +83,10 @@ class UserManagementActivity : AppCompatActivity() {
         updateUserButton.setOnClickListener{
             val intent = Intent(this@UserManagementActivity, UpdateUserActivity::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
-            intent.putExtra(USER_ID, users[userPositionInArray].getID())
-            intent.putExtra(USER_USERNAME, users[userPositionInArray].getUserName())
-            intent.putExtra(USER_PASS, users[userPositionInArray].getPassword())
-            intent.putExtra(USER_NAME, users[userPositionInArray].getCompleteName())
+            intent.putExtra(USER_ID, usersEntity[userPositionInArray].getField_id())
+            intent.putExtra(USER_USERNAME, usersEntity[userPositionInArray].getField_userName())
+            intent.putExtra(USER_PASS, usersEntity[userPositionInArray].getField_password())
+            intent.putExtra(USER_NAME, usersEntity[userPositionInArray].getField_completeName())
             startActivity(intent)
         }
 
@@ -139,7 +137,8 @@ class UserManagementActivity : AppCompatActivity() {
             }
             R.id.restoreBU -> {
                 BackUpManager.restoreBackup(this)
-                refreshUsers()
+                lifecycleScope.launch {  refreshUsers() }
+
             }
         }
 
@@ -159,12 +158,10 @@ class UserManagementActivity : AppCompatActivity() {
         }
     }
 
-    fun refreshUsers()
+    suspend fun refreshUsers()
     {
         lifecycleScope.launch {
-            users = sqliteHelper.getUsers()
             usersEntity = db.userDao().getAllUsers()
-
 
             val userIDS = ArrayList<Long>()
             val userUsernames = ArrayList<String>()
@@ -180,7 +177,7 @@ class UserManagementActivity : AppCompatActivity() {
                 userEmails.add(user.getField_email())
             }
 
-            withContext(Dispatchers.IO)
+            withContext(Dispatchers.Main)
             {
                 val adapter = ArrayAdapter(
                     this@UserManagementActivity,
@@ -209,32 +206,39 @@ class UserManagementActivity : AppCompatActivity() {
     }
 
     fun deleteActiveUser() {
-        if (users.size > 0) {
-            val builder = AlertDialog.Builder(this)
-            builder.setTitle("Delete User")
-            builder.setMessage("Do you really want to delete the selected user?")
-            builder.setCancelable(true)
-            builder.setPositiveButton("OK") { dialog, _ ->
-                if (sqliteHelper.deleteUser(users[userPositionInArray].getID()) > -1) {
 
-                    val usuarioBorrado = users.removeAt(userPositionInArray)
-                    refreshUsers()
-                    dialog.dismiss()
-                    Toast.makeText(
-                        this,
-                        "Usuario ${usuarioBorrado.getUserName()}. eliminado correctamente",
-                        Toast.LENGTH_SHORT
-                    ).show()
+        lifecycleScope.launch {
+
+            if (usersEntity.size > 0) {
+                val builder = AlertDialog.Builder(this@UserManagementActivity)
+                builder.setTitle("Delete User")
+                builder.setMessage("Do you really want to delete the selected user?")
+                builder.setCancelable(true)
+                builder.setPositiveButton("OK") { dialog, _ ->
+                    val numUserBef = usersEntity.size
+                    val usuarioBorrado = usersEntity[userPositionInArray].getField_userName()
+                    db.userDao().delete(usersEntity[userPositionInArray])
+                  //  refreshUsers()
+                    lifecycleScope.launch {  refreshUsers() }
+
+                    val numUserAf = usersEntity.size
+                    if (numUserAf < numUserBef) {
+                        dialog.dismiss()
+                        Toast.makeText(
+                            this@UserManagementActivity,
+                            "Usuario ${usuarioBorrado}. eliminado correctamente",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
                 }
+                builder.setNegativeButton("CANCEL") { dialog, _ ->
+                    dialog.dismiss()
+                }
+                val alert = builder.create()
+                alert.show()
+            } else {
+                Toast.makeText(this@UserManagementActivity, "There aren't users registered", Toast.LENGTH_SHORT).show()
             }
-            builder.setNegativeButton("CANCEL") { dialog, _ ->
-                dialog.dismiss()
-            }
-            val alert = builder.create()
-            alert.show()
-        }
-        else{
-            Toast.makeText(this, "There aren't users registered", Toast.LENGTH_SHORT).show()
         }
     }
 }

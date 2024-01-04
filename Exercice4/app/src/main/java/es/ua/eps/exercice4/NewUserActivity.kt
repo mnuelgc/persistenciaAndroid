@@ -30,7 +30,6 @@ class NewUserActivity : AppCompatActivity() {
     lateinit var newButton: Button
     lateinit var backButton: Button
 
-    private lateinit var sqliteHelper: UsersSQLiteHelper
 
     private lateinit var db: AppDatabase
 
@@ -39,15 +38,12 @@ class NewUserActivity : AppCompatActivity() {
         viewBinding = ActivityNewUserBinding.inflate(layoutInflater)
         setContentView(viewBinding.root)
 
-        sqliteHelper = UsersSQLiteHelper(this)
-
         supportActionBar?.setHomeButtonEnabled(true)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         supportActionBar?.title = "New User"
 
-        db = Room.databaseBuilder(this, AppDatabase::class.java, "databaseuser.db")
-            .allowMainThreadQueries().build()
+        db = BackUpManager.getDataBase(this)
 
         newLoginUserNameEditText = viewBinding.loginUserNameEditText
         newPasswordEditText = viewBinding.createPasswordEditText
@@ -68,31 +64,6 @@ class NewUserActivity : AppCompatActivity() {
         }
     }
 
-    /*  fun newUser(): Boolean {
-          val userName = newLoginUserNameEditText.text.toString()
-          val pass = newPasswordEditText.text.toString()
-          val userCompleteName = newUserNameEditText.text.toString()
-
-          if (userName.isEmpty() || pass.isEmpty() || userCompleteName.isEmpty()) {
-              Toast.makeText(this, "Can't create user with  empty fields", Toast.LENGTH_SHORT).show()
-              return false
-          } else {
-              val user = UserModel(userName, pass, userCompleteName, userCompleteName)
-              val status = sqliteHelper.addUser(user)
-
-              if (status > -1) {
-                  Toast.makeText(this, "User added", Toast.LENGTH_SHORT).show()
-                  println(user.toPrint())
-
-                  return true
-
-              } else {
-                  Toast.makeText(this, "Recorded not saved", Toast.LENGTH_SHORT).show()
-                  return false
-              }
-          }
-      }
-     */
     fun newUser(){
         val userName = newLoginUserNameEditText.text.toString()
         val pass = newPasswordEditText.text.toString()

@@ -8,9 +8,9 @@ import androidx.recyclerview.widget.RecyclerView
 
 class UserAdapter : RecyclerView.Adapter<UserAdapter.UserViewHolder>() {
 
-    private var users: ArrayList<UserEntity> = ArrayList()
+    private var users: List<UserEntity> = ArrayList()
 
-    fun addItems(items: ArrayList<UserEntity>){
+    fun addItems(items: List<UserEntity>){
         this.users = items
         notifyDataSetChanged()
     }

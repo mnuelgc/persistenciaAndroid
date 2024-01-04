@@ -13,6 +13,7 @@ import android.widget.Button
 import android.widget.Spinner
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.room.Room
 import es.ua.eps.exercice4.databinding.ActivityListUserBinding
 import es.ua.eps.exercice4.databinding.ActivityUserManagementBinding
 
@@ -24,9 +25,11 @@ class ListUserActivity : AppCompatActivity() {
 
     lateinit var backButton : Button
 
-    lateinit var sqLiteHelper: UsersSQLiteHelper
     private lateinit var recyclerView: RecyclerView
     private var adapter:UserAdapter ?= null
+
+    private lateinit var db : AppDatabase
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,11 +49,14 @@ class ListUserActivity : AppCompatActivity() {
         adapter = UserAdapter()
         recyclerView.adapter = adapter
 
-        sqLiteHelper = UsersSQLiteHelper(this)
-
-      /*  val userList = sqLiteHelper.getUsers()
+        db = BackUpManager.getDataBase(this)
+  /*      val userList = sqLiteHelper.getUsers()
         adapter?.addItems(userList)
 */
+        val userList = db.userDao().getAllUsers()
+        adapter?.addItems(userList)
+
+
         backButton.setOnClickListener{
             finish()
         }

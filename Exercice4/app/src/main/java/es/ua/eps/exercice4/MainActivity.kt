@@ -15,6 +15,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.core.app.NavUtils
+import androidx.room.Room
 import es.ua.eps.exercice4.databinding.ActivityMainBinding
 import java.io.File
 import java.io.FileInputStream
@@ -31,7 +32,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var loginButton: Button
     lateinit var closeButton: Button
 
-    private lateinit var sqliteHelper : UsersSQLiteHelper
+    private lateinit var db : AppDatabase
 
     companion object {
         const val USER_NAME = "USER_NAME"
@@ -44,7 +45,7 @@ class MainActivity : AppCompatActivity() {
         viewBinding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(viewBinding.root)
 
-        sqliteHelper = UsersSQLiteHelper(this)
+        db = BackUpManager.getDataBase(this)
 
         supportActionBar?.title = "SQLite"
 
@@ -53,7 +54,7 @@ class MainActivity : AppCompatActivity() {
 
         loginButton = viewBinding.loginButton
 
-        loginButton.setOnClickListener {
+      /*  loginButton.setOnClickListener {
 
             val user = sqliteHelper.login(
                 usernameEditText.text.toString(),
@@ -70,7 +71,27 @@ class MainActivity : AppCompatActivity() {
             else{
                 Toast.makeText(this, "Cant login wrong data", Toast.LENGTH_SHORT).show()
             }
+        }*/
+
+        loginButton.setOnClickListener {
+
+            val user = db.userDao().login(
+                usernameEditText.text.toString(),
+                passwordEditText.text.toString()
+            )
+
+            if (user != null) {
+                val intent = Intent(this, UserDataActivity::class.java)
+                intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
+                intent.putExtra(USER_NAME, user.getField_userName())
+                intent.putExtra(USER_COMPLETE_NAME, user.getField_completeName())
+                startActivity(intent)
+            }
+            else{
+                Toast.makeText(this, "Cant login wrong data", Toast.LENGTH_SHORT).show()
+            }
         }
+
 
         closeButton = viewBinding.closeButton
         closeButton.setOnClickListener{

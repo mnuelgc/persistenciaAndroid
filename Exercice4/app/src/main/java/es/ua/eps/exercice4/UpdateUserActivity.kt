@@ -13,9 +13,12 @@ import android.view.MenuItem
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import androidx.lifecycle.lifecycleScope
+import androidx.room.Room
 import es.ua.eps.exercice4.databinding.ActivityMainBinding
 import es.ua.eps.exercice4.databinding.ActivityUpdateUserBinding
 import es.ua.eps.exercice4.databinding.ActivityUserDataBinding
+import kotlinx.coroutines.launch
 
 class UpdateUserActivity : AppCompatActivity() {
 
@@ -28,7 +31,7 @@ class UpdateUserActivity : AppCompatActivity() {
     lateinit var updateButton: Button
     lateinit var backButton: Button
 
-    private lateinit var sqliteHelper: UsersSQLiteHelper
+    private lateinit var db: AppDatabase
 
     companion object {
         const val USER_ID = "USER_ID"
@@ -42,12 +45,11 @@ class UpdateUserActivity : AppCompatActivity() {
         viewBinding = ActivityUpdateUserBinding.inflate(layoutInflater)
         setContentView(viewBinding.root)
 
-        sqliteHelper = UsersSQLiteHelper(this)
-
         supportActionBar?.setHomeButtonEnabled(true)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         supportActionBar?.title = "Update User"
+        db = BackUpManager.getDataBase(this)
 
         usernameEditText = viewBinding.updateLoginUserNameEditText
         passwordEditText = viewBinding.updatePasswordEditText
@@ -128,7 +130,7 @@ class UpdateUserActivity : AppCompatActivity() {
     }
 
     fun updateUser() {
-        val userID = intent.getIntExtra(USER_ID, -1)
+        val userID = intent.getLongExtra(USER_ID, -1)
         val userName = usernameEditText.text.toString()
         val pass = passwordEditText.text.toString()
         val userCompleteName = userCompleteNamedEditText.text.toString()
@@ -137,13 +139,12 @@ class UpdateUserActivity : AppCompatActivity() {
             Toast.makeText(this, "Error can't update if fields are empty", Toast.LENGTH_SHORT)
                 .show()
         } else {
-            if (userID != -1) {
-                val user = UserModel(userID, userName, pass, userCompleteName, userCompleteName)
+            if (userID.toInt() != -1) {
+                lifecycleScope.launch {
+                    val user =
+                        UserEntity(userID, userName, pass, userCompleteName, userCompleteName)
 
-                if (sqliteHelper.updateUser(user) > -1) {
-                    Toast.makeText(this, "User updated", Toast.LENGTH_SHORT).show()
-                } else {
-                    Toast.makeText(this, "Error can't update", Toast.LENGTH_SHORT).show()
+                    db.userDao().update(user)
                 }
             } else {
                 Toast.makeText(this, "Error can't update", Toast.LENGTH_SHORT).show()
